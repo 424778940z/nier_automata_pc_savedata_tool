@@ -11,14 +11,23 @@ It will write your Steam account ID to it.
 Put that modified save file back to your savedata folder.
 Ready to go!
 
-Note: you need a imagex.exe put in the same folder contains wim_integrator.exe
+Note:
+The Editable checkbox is for make the line editor editable.
+Normally you do not need to enable this, Steam account ID should only be numbers, proceed with caution.
 
 # ToDo
 - [x] be able to change Steam account ID
 - [ ] be able to change player name
 
+This tool support following languages
+English
+Chinese
+Japanese (may need improve)
+
 # Screenshot
 
 Folder selected
 
-![ss](https://raw.githubusercontent.com/424778940z/nier_automata_pc_savedata_tool/master/screenshot/ss.png)
+![eng](https://raw.githubusercontent.com/424778940z/nier_automata_pc_savedata_tool/master/screenshot/eng.png)
+![chs](https://raw.githubusercontent.com/424778940z/nier_automata_pc_savedata_tool/master/screenshot/chs.png)
+![jpn](https://raw.githubusercontent.com/424778940z/nier_automata_pc_savedata_tool/master/screenshot/jpn.png)
