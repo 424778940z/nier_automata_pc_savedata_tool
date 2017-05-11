@@ -35,11 +35,19 @@ private slots:
 
     void on_le_steam_account_id_textChanged(const QString &arg1);
 
+    void on_le_player_name_textChanged(const QString &arg1);
+
 private:
+    Ui::MainWindow *ui;
+
+    //translate
     QLocale lang_locale;
     QTranslator lang_translator;
     void lang_switch(QLocale::Language lang);
-    Ui::MainWindow *ui;
+    //empty write blocker
+    bool is_empty_le_steam_account_id;
+    bool is_empty_le_player_name;
+    void refresh_empty_write_blocker();
 };
 
 #endif // MAINWINDOW_H

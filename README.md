@@ -27,7 +27,10 @@ Normally you do not need to enable this, Steam account ID should only be numbers
 
 # ToDo
 - [x] be able to change Steam account ID
-- [ ] be able to change player name
+- [x] be able to change player name
+- [x] be able to filter out wrong input with regular expression
+- [ ] improve Japanese translation
+- [ ] random crash feature that coordinate with game (lol I'm kidding)
 
 # Screenshot
 

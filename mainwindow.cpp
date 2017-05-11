@@ -6,6 +6,11 @@
 #include <QFileDialog>
 #include <QDataStream>
 #include <QLocale>
+#include <QRegExp>
+
+#define POS_STEAM_ACCOUNT_ID 0x04
+#define POS_PLAYER_NAME 0x34
+#define SIZE_PLAYER_NAME 0x20
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -15,6 +20,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //basic config
     ui->le_steam_account_id->setReadOnly(true);
+    QRegExpValidator *steam_account_id_validator = new QRegExpValidator(QRegExp("[0-9]{0,20}"), this);
+    ui->le_steam_account_id->setValidator(steam_account_id_validator);
+
+    ui->le_player_name->setReadOnly(true);
+    QRegExpValidator *player_name_validator = new QRegExpValidator(QRegExp(".{0,16}"), this);
+    ui->le_player_name->setValidator(player_name_validator);
+
     ui->pb_write->setEnabled(false);
 
     //translation
@@ -59,10 +71,12 @@ void MainWindow::on_cb_editable_clicked(bool checked)
     if(checked)
     {
         ui->le_steam_account_id->setReadOnly(false);
+        ui->le_player_name->setReadOnly(false);
     }
     else
     {
         ui->le_steam_account_id->setReadOnly(true);
+        ui->le_player_name->setReadOnly(true);
     }
 }
 
@@ -79,11 +93,21 @@ void MainWindow::on_pb_read_clicked()
         {
             QDataStream file_ds(&file);
             file_ds.setByteOrder(QDataStream::LittleEndian);
-            file.seek(0x04);
 
+            file.seek(POS_STEAM_ACCOUNT_ID);
             qint64 steam_account_id;
             file_ds >> steam_account_id;
             ui->le_steam_account_id->setText(QString::number(steam_account_id));
+
+            file.seek(POS_PLAYER_NAME);
+            QString player_name;
+            char buffer[2];
+            for(int i = 0; i < SIZE_PLAYER_NAME/2; i++)
+            {
+                file.read(buffer,sizeof(buffer));
+                player_name.append(buffer);
+            }
+            ui->le_player_name->setText(player_name);
 
             file.close();
             QMessageBox::information(this,this->windowTitle(),tr("succeed"),QMessageBox::Ok);
@@ -108,11 +132,22 @@ void MainWindow::on_pb_write_clicked()
         {
             QDataStream file_ds(&file);
             file_ds.setByteOrder(QDataStream::LittleEndian);
-            file.seek(0x04);
 
+            file.seek(POS_STEAM_ACCOUNT_ID);
             qint64 steam_account_id;
             steam_account_id = ui->le_steam_account_id->text().toLongLong();
             file_ds << steam_account_id;
+
+            file.seek(POS_PLAYER_NAME);
+            QString player_name;
+            player_name = ui->le_player_name->text();
+            char buffer[32];
+            for(int i = 0; i < SIZE_PLAYER_NAME/2; i++)
+            {
+                buffer[i*2] = player_name.toLatin1().data()[i];
+                buffer[i*2+1] = '\0';
+            }
+            file.write(buffer,SIZE_PLAYER_NAME);
 
             file.close();
             QMessageBox::information(this,this->windowTitle(),tr("succeed"),QMessageBox::Ok);
@@ -144,14 +179,28 @@ void MainWindow::on_actionlang_jpn_triggered()
     lang_switch(QLocale::Japanese);
 }
 
-void MainWindow::on_le_steam_account_id_textChanged(const QString &arg1)
+void MainWindow::refresh_empty_write_blocker()
 {
-    if(arg1.isEmpty())
+    if(is_empty_le_steam_account_id || is_empty_le_player_name)
     {
+        ui->pb_write->setEnabled(false);
         ui->pb_write->setEnabled(false);
     }
     else
     {
         ui->pb_write->setEnabled(true);
+        ui->pb_write->setEnabled(true);
     }
+}
+
+void MainWindow::on_le_steam_account_id_textChanged(const QString &arg1)
+{
+    is_empty_le_steam_account_id = arg1.isEmpty();
+    refresh_empty_write_blocker();
+}
+
+void MainWindow::on_le_player_name_textChanged(const QString &arg1)
+{
+    is_empty_le_player_name = arg1.isEmpty();
+    refresh_empty_write_blocker();
 }

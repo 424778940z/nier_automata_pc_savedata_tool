@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>393</width>
-    <height>93</height>
+    <width>395</width>
+    <height>130</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>nier_automata_pc_savedata__ver_x_x</string>
@@ -18,7 +24,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>40</y>
+      <y>70</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -31,7 +37,7 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>40</y>
+      <y>70</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -54,7 +60,7 @@
     <property name="geometry">
      <rect>
       <x>280</x>
-      <y>40</y>
+      <y>70</y>
       <width>101</width>
       <height>21</height>
      </rect>
@@ -80,7 +86,7 @@
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>40</y>
+      <y>70</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -89,13 +95,36 @@
      <string>about</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="le_player_name">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>40</y>
+      <width>241</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lb_player_name">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>player_name</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>393</width>
+     <width>395</width>
      <height>22</height>
     </rect>
    </property>

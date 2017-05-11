@@ -1,4 +1,9 @@
 
+Version 0.31
+[feafeature_add] be able to change player name
+[feafeature_add] be able to filter out wrong input with regular expression
+[bug_fixed] window no longer resizable
+
 Version 0.1
 [feature_N\A] Initial Release
 
