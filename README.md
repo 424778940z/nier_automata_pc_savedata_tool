@@ -1,6 +1,6 @@
 # NieR:Automata PC Savedata Tool
-Since NieR will put the Steam account ID in your save file, and check it before loading, it's blocking people from share their save files. 
-I build this little tool for change that ID.
+Since NieR will put the Steam account ID in your save file, and check it before loading, it's blocking people from share their save files. I build this little tool for change that ID. Now it's able to change player name as well, but I have not plan to go further for now.
+
 
 # How to use
 Before you do anything, backup your save file.
