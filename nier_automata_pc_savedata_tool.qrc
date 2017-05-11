@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/lang">
+        <file>nier_automata_pc_savedata_tool_en_us.qm</file>
+        <file>nier_automata_pc_savedata_tool_ja_jp.qm</file>
+        <file>nier_automata_pc_savedata_tool_zh_cn.qm</file>
+    </qresource>
+    <qresource prefix="/icon">
+        <file>icon.ico</file>
+    </qresource>
+</RCC>
