@@ -1,0 +1,6 @@
+
+Version 0.1
+[feature_N\A] Initial Release
+
+Version calculation
+new_version = current_version + (feature_xxx * 0.1) + (bug_fixed * 0.01)
