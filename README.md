@@ -19,15 +19,15 @@ Normally you do not need to enable this, Steam account ID should only be numbers
 - [x] be able to change Steam account ID
 - [ ] be able to change player name
 
-This tool support following languages
-English
-Chinese
-Japanese (may need improve)
-
 # Screenshot
 
-Folder selected
+This tool support following languages
 
+English
 ![eng](https://raw.githubusercontent.com/424778940z/nier_automata_pc_savedata_tool/master/screenshot/eng.png)
+
+Chinese
 ![chs](https://raw.githubusercontent.com/424778940z/nier_automata_pc_savedata_tool/master/screenshot/chs.png)
+
+Japanese (may need improve)
 ![jpn](https://raw.githubusercontent.com/424778940z/nier_automata_pc_savedata_tool/master/screenshot/jpn.png)
